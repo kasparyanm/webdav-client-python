@@ -208,6 +208,8 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['list'],
                 'HTTPHEADER': self.get_header('list'),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST', 0,
                 'NOBODY': 0
             }
 
@@ -260,6 +262,8 @@ class Client(object):
                 'HTTPHEADER': self.get_header('free'),
                 'POSTFIELDS': data(),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 0
             }
 
@@ -285,6 +289,8 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['check'],
                 'HTTPHEADER': self.get_header('check'),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 1
             }
 
@@ -340,6 +346,8 @@ class Client(object):
             options = {
                 'URL': "{hostname}{root}{path}".format(**url),
                 'WRITEFUNCTION': buff.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'HTTPHEADER': self.get_header('download_to'),
                 'NOBODY': 0
             }
@@ -398,6 +406,8 @@ class Client(object):
                     'URL': "{hostname}{root}{path}".format(**url),
                     'HTTPHEADER': self.get_header('download_file'),
                     'WRITEFUNCTION': local_file.write,
+					'SSL_VERIFYPEER': 0,
+					'SSL_VERIFYHOST': 0,
                     'NOPROGRESS': 0 if progress else 1,
                     'NOBODY': 0
                 }
@@ -688,6 +698,8 @@ class Client(object):
                 'HTTPHEADER': self.get_header('publish'),
                 'POSTFIELDS': data(for_server=self.webdav.hostname),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 0
             }
 
@@ -790,6 +802,8 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['info'],
                 'HTTPHEADER': self.get_header('info'),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 0
             }
 
@@ -852,6 +866,8 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['info'],
                 'HTTPHEADER': self.get_header('info'),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 0
             }
 
@@ -908,6 +924,8 @@ class Client(object):
                 'HTTPHEADER': self.get_header('get_metadata'),
                 'POSTFIELDS': data(option),
                 'WRITEFUNCTION': response.write,
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 0
             }
 
