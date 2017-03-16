@@ -209,7 +209,7 @@ class Client(object):
                 'HTTPHEADER': self.get_header('list'),
                 'WRITEFUNCTION': response.write,
 				'SSL_VERIFYPEER': 0,
-				'SSL_VERIFYHOST', 0,
+				'SSL_VERIFYHOST': 0,
                 'NOBODY': 0
             }
 
