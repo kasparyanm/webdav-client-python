@@ -207,7 +207,7 @@ class Client(object):
                 'URL': "{hostname}{root}{path}".format(**url),
                 'CUSTOMREQUEST': Client.requests['list'],
                 'HTTPHEADER': self.get_header('list'),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 0
             }
 
@@ -259,7 +259,7 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['free'],
                 'HTTPHEADER': self.get_header('free'),
                 'POSTFIELDS': data(),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 0
             }
 
@@ -284,7 +284,7 @@ class Client(object):
                 'URL': "{hostname}{root}{path}".format(**url),
                 'CUSTOMREQUEST': Client.requests['check'],
                 'HTTPHEADER': self.get_header('check'),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 1
             }
 
@@ -397,7 +397,7 @@ class Client(object):
                 options = {
                     'URL': "{hostname}{root}{path}".format(**url),
                     'HTTPHEADER': self.get_header('download_file'),
-                    'WRITEDATA': local_file,
+                    'WRITEFUNCTION': local_file.write,
                     'NOPROGRESS': 0 if progress else 1,
                     'NOBODY': 0
                 }
@@ -687,7 +687,7 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['publish'],
                 'HTTPHEADER': self.get_header('publish'),
                 'POSTFIELDS': data(for_server=self.webdav.hostname),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 0
             }
 
@@ -789,7 +789,7 @@ class Client(object):
                 'URL': "{hostname}{root}{path}".format(**url),
                 'CUSTOMREQUEST': Client.requests['info'],
                 'HTTPHEADER': self.get_header('info'),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 0
             }
 
@@ -851,7 +851,7 @@ class Client(object):
                 'URL': "{hostname}{root}{path}".format(**url),
                 'CUSTOMREQUEST': Client.requests['info'],
                 'HTTPHEADER': self.get_header('info'),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 0
             }
 
@@ -907,7 +907,7 @@ class Client(object):
                 'CUSTOMREQUEST': Client.requests['get_metadata'],
                 'HTTPHEADER': self.get_header('get_metadata'),
                 'POSTFIELDS': data(option),
-                'WRITEDATA': response,
+                'WRITEFUNCTION': response.write,
                 'NOBODY': 0
             }
 
