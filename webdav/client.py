@@ -320,6 +320,8 @@ class Client(object):
             options = {
                 'URL': "{hostname}{root}{path}".format(**url),
                 'CUSTOMREQUEST': Client.requests['mkdir'],
+				'SSL_VERIFYPEER': 0,
+				'SSL_VERIFYHOST': 0,
                 'HTTPHEADER': self.get_header('mkdir')
             }
 
